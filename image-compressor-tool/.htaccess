@@ -1,0 +1,13 @@
+# keep-alive (speed up website)
+#<ifModule mod_headers.c> 
+#Header set Connection keep-alive 
+#</ifModule>
+
+# disable folder search
+#Options All -Indexes
+
+# for image upload
+php_value upload_max_filesize 40M
+php_value post_max_size 2048M
+php_value memory_limit 3072M
+php_value max_file_uploads 500
