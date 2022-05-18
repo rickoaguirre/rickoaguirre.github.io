@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lyric Video Player - Made by Ricko Aguirre</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+		<link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/index.css">
+		<script src="js/wow.min.js"></script>
+		<script>new WOW().init();</script>
+		<script type="text/javascript" src="js/preloader-start.js"></script>
+    </head>
+    <body>
+		<audio id="sana" style="display:none;" src="music/Sana_Kung_Pwede_Lang.mp3" type="audio/mp3"></audio>
+		<canvas id="canvas" class="loader-loading"></canvas>
+		<div id="menu-btn"></div>
+		<div id="view-modes"></div>
+		<div id="main">
+		  <div id="all"></div>
+		  <div id="nodes"><div id="nodes-container"></div><svg width="9" height="5" id="nodes-arrow" data-name="nodes-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.02 5.04"><polygon points="4.51 5.04 0 0.53 0.53 0 4.51 3.98 8.48 0 9.02 0.53 4.51 5.04" style="fill:#fff"/></svg></div>
+		  <div class="overlay is-top">
+			  <h1 class="wow fadeIn" data-wow-delay="4s">Lyric Video Player</h1>
+			  <h2 class="wow fadeIn" data-wow-delay="7s">Song: Sana Kung Pwede Lang by Juan Karlos Labajo </h2>
+			  <br><br>
+			  <h2 class="lyrics" id="L1">Kahit pilitin, 'di mapigil ang init hanggang san</h2>
+			  <h2 class="lyrics" id="L2">ko kakayanin pagpaliban ang nararamdaman</h2>
+			  <h2 class="lyrics" id="L3">Ako'y hilo at gulong-gulo</h2>
+			  <h2 class="lyrics" id="L4">Alay ang aking puso ngunit di masabi sayo</h2>
+			  <h2 class="lyrics" id="L5">Kung pwede lang, O sana, kung pwede lang</h2>
+			  <h2 class="lyrics" id="L6">Di maabot sa'yong bulong-bulong</h2>
+			  <h2 class="lyrics" id="L7">Tungkol sa aking nililihim na pag-ibig pagkawili sa'yo</h2>
+			  <h2 class="lyrics" id="L8">Ako'y hilo at gulong-gulo</h2>
+			  <h2 class="lyrics" id="L9">Alay ang aking puso, s'yang tibok ay para sa'yo</h2>
+			  <h2 class="lyrics" id="L10">Kung pwede lang, O sana, kung pwede lang</h2>
+			  <h2 class="lyrics" id="L11">Gulong-gulo</h2>
+			  <h2 class="lyrics" id="L12">Pa'no sasabihin ang nililihim ko, pag kay tagal</h2>
+			  <h2 class="lyrics" id="L13">Gulong-gulo</h2>
+			  <h2 class="lyrics" id="L14">Pilit pinipigil ngunit di na ata kayang takpan</h2>
+			  <h2 class="lyrics" id="L15">Ako'y hilo at gulong-gulo ooh...</h2>
+			  <h2 class="lyrics" id="L16">Kung pwede lang, O sana, kung pwede lang</h2>
+			  <h2 class="thanks" id="T">Thanks for listening!</h2>
+			  
+			  <h2 class="loader-loading2">loading music...</h2>
+		  </div>
+		  <div class="overlay is-bottom">
+			  <br><br>
+			  <h3 class="wow fadeIn" data-wow-delay="11s">Made by Ricko Aguirre</h3>
+		  </div>
+		  <div id="story"><div id="story-pole"><div id="story-pole-line"></div><div id="story-pole-node"></div></div></div>
+		</div>
+		<div id="preloader-text" class="cache">
+		  <div id="preloader-text-title">Sana Kung</div>
+		  <div id="preloader-text-author">Pwede Lang</div>
+		</div>
+		<script src="js/three.min.js"></script>
+		<script src="js/index.js"></script>
+		<script type="text/javascript" src="js/preloader-finish.js"></script>
+	</body>
+</html>
