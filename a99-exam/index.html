@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="simple list app that displays launches from Space X">
+    <meta name="author" content="Ricko Aguirre">
+    <title>SpaceX API</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <main role="main" class="container" id="main-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <form action="GET">
+              <div class="form-group">
+                <input type="text"
+                  class="form-control" name="txtKeywords" placeholder="Enter Keywords" id="txtKeywords" aria-describedby="helpId" placeholder="">
+              </div>
+            </form>
+            <div id="api-result">
+            </div>
+          </div>
+          <div class="loader"></div>
+        </div>
+      </div>
+    </main>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        var start_count = 0;
+        var limiter = 5;
+
+        function fetchResult() {
+          fetch('https://api.spacexdata.com/v4/launches/').then((data)=> {
+            return data.json();
+          }).then((completedata)=>{
+            let result = '';
+            completedata.slice(start_count, limiter).map((item)=> {
+              if(!item.details) {
+                item.details = 'No details found.';
+              }
+  
+              result  += `
+                <div class="card text-left mb-4">
+                <div class="row">
+                  <div class="col-lg-2 mt-4 mb-4">
+                    <img class="img-fluid" src="assets/img/image-placeholder.jpg" alt="" style="padding-left: 1.5rem;">
+                  </div>
+                  <div class="col-lg-10">
+                    <div class="card-body">
+                      <h4 class="card-title">Flight Number ${item.flight_number}: ${item.name} (${moment(item.date_local).format('YYYY')})</h4>
+                      <p class="card-text grey-text">
+                        Details: ${item.details}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              `;
+  
+            })
+            $('#api-result').append(result);
+          })
+        }
+
+        fetchResult();
+            
+        $(window).scroll(function() {
+          if($(window).scrollTop() + $(window).height() == $(document).height()) {
+              start_count = limiter;
+              limiter = limiter + 5;
+              fetchResult();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
